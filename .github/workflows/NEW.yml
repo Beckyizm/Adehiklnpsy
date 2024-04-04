@@ -5,7 +5,7 @@ on: workflow_dispatch
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: windows-2022
     timeout-minutes: 90
 
     steps:
@@ -27,7 +27,7 @@ jobs:
         # copy wallpaper.jpg D:\a\wallpaper.jpg
         # copy wallpaper.bat D:\a\wallpaper.bat
     - name: Creating Tunnel.
-      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 3389"'
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 3389 --region us"'
     - name: Connecting to your RDP.
       run: cmd /c start.bat
     - name: RDP is ready!
